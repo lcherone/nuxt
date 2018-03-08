@@ -82,8 +82,8 @@
     layout: 'admin',
     middleware: 'anonymous',
     computed: mapGetters([
-      'isAuthenticated',
-      'loggedUser'
+      'auth/isAuthenticated',
+      'auth/loggedUser'
     ]),
     components: {
       TopNav, SideNav
@@ -139,7 +139,7 @@
 
 <style>
   html {
-    background: #dddddd;
+    background: #dddddd !important;
     height: 100%
   }
   .columns {

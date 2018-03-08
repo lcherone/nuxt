@@ -1,37 +1,22 @@
 <template>
   <div>
+    <h1>
+      View Server
+      <div class="field is-grouped is-pulled-right">
+        <p class="control">
+          <a class="button is-success" @click="save">
+            <i class="fa fa-check"></i> Save
+          </a>
+        </p>
+        <p class="control">
+          <a class="button is-danger">
+            <i class="fa fa-times"></i> Delete
+          </a>
+        </p>
+      </div>
+    </h1>
     <div class="box"> 
-      <nuxt-link to="/servers" active-class="is-active">Servers</nuxt-link>
-      <table class="table">
-        <thead>
-          <tr>
-            <th>One</th>
-            <th>Two</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Three</td>
-            <td>Four</td>
-          </tr>
-          <tr>
-            <td>Five</td>
-            <td>Six</td>
-          </tr>
-          <tr>
-            <td>Seven</td>
-            <td>Eight</td>
-          </tr>
-          <tr>
-            <td>Nine</td>
-            <td>Ten</td>
-          </tr>
-          <tr>
-            <td>Eleven</td>
-            <td>Twelve</td>
-          </tr>
-        </tbody>
-      </table>
+      This will be the view server seciotn, which will show details.
     </div>
   </div>
 </template>
@@ -60,11 +45,6 @@
       return { users: data }
     },
     */
-    asyncData() {
-      return {
-        name: process.static ? 'static' : (process.server ? 'server' : 'client')
-      }
-    },
     data () {
       return {
 

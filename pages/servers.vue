@@ -7,27 +7,7 @@
       </div>
       <div class="column is-main-content">
         <div class="content" style="margin-top: 10px">
-          <h1>
-            Servers
-            <div class="field is-grouped is-pulled-right">
-              <p class="control" v-if="buttons.save">
-                <a class="button is-success" @click="click">
-                  Save
-                </a>
-              </p>
-              <p class="control" v-if="buttons.create">
-                <a class="button is-success">
-                  Create
-                </a>
-              </p>
-              <p class="control" v-if="buttons.delete">
-                <a class="button is-danger">
-                  Delete
-                </a>
-              </p>
-            </div>
-          </h1>
-          <nuxt-child @show-buttons="showButtons" ref="childComponent"/>
+          <nuxt-child ref="childComponent"/>
         </div>
       </div>
     </div>
@@ -35,15 +15,19 @@
 </template>
 
 <script>
-  import axios from 'axios'
+  import { mapGetters } from 'vuex'
 
   import TopNav from '~/components/TopNav.vue'
   import SideNav from '~/components/SideNav.vue'
 
   export default {
     layout: 'admin',
+    middleware: 'authenticated',
     components: {
       TopNav, SideNav
+    },
+    computed: {
+      ...mapGetters(['auth/loggedUser'])
     },
     /*
     async asyncData() {
@@ -51,27 +35,11 @@
       return { users: data }
     },
     */
-    mounted: function () {
-      
-    },
-    asyncData() {
-      return {
-        name: process.static ? 'static' : (process.server ? 'server' : 'client')
-      }
-    },
+    mounted: function () {},
     data () {
-      return {
-        buttons: {}
-      }
+      return {}
     },
-    methods: {
-      showButtons(data) {
-        this.buttons = data
-      },
-      click: function() {
-        this.$refs.childComponent.save();
-      }
-    }
+    methods: {}
   }
 </script>
 

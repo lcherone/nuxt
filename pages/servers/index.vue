@@ -1,5 +1,13 @@
 <template>
   <div>
+    <h1>
+      Servers
+      <div class="field is-grouped is-pulled-right">
+        <p class="control">
+          <nuxt-link to="/servers/add" class="button is-success"><i class="fa fa-plus"></i> Add</nuxt-link>
+        </p>
+      </div>
+    </h1>
     <div class="box"> 
       <table class="table">
         <thead>
@@ -52,28 +60,12 @@
       return { users: data }
     },
     */
-    asyncData() {
-      return {
-        name: process.static ? 'static' : (process.server ? 'server' : 'client')
-      }
-    },
     data () {
       return {
-
       }
     },
-    mounted: function () {
-      this.$emit('show-buttons', {
-        save: false,
-        create: true,
-        delete: false
-      });
-    },
-    methods: {
-      save: function(value) {
-        alert('ffff')
-      }
-    }
+    mounted: function () {},
+    methods: {}
   }
 </script>
 
