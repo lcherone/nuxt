@@ -151,8 +151,25 @@ $sizes: $size-1 $size-2 $size-3 $size-4 $size-5 $size-6 $size-7 !default
 
 $navbar-height: 3.25rem
 
-.is-sidebar-menu
+// fix minireset.css itremove scrollbars
+html 
+  overflow-x: auto !important
+  overflow-y: auto !important
+  
+// fix bulmer negative margin-left|right, breaks scrollbars
+.columns
+  margin-left: 0rem !important
+  margin-right: 0rem !important
+
+.is-burger-menu
   padding: $size-4!important
+  background: $white
+  li
+    a
+      color: $grey-dark
+
+.is-sidebar-menu
+  padding: $size-4 $size-5 $size-5 $size-6 !important
   background: $grey-dark
   li
     a
@@ -170,5 +187,4 @@ $navbar-height: 3.25rem
     
 .is-main-content
   background: $grey-lighter
-  padding-top: 20px
   

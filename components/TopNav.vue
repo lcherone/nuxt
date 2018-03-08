@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar ">
+  <nav class="navbar">
     <div class="navbar-brand">
       <a class="navbar-item" href="http://bulma.io">
         <img src="http://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
@@ -17,14 +17,51 @@
         </span>
       </a>
 
-      <div class="navbar-burger burger" data-target="navMenubd-example">
+      <div class="navbar-burger burger is-hidden-tablet" v-on:click="showNav = !showNav" v-bind:class="{ 'is-active' : showNav }">
         <span></span>
         <span></span>
         <span></span>
-      </div>
+      </div> 
     </div>
 
-    <div id="navMenubd-example" class="navbar-menu">
+    <div class="nav-right nav-menu is-hidden-tablet" v-show="showNav">
+      <aside class="menu is-burger-menu">
+        <p class="menu-label">
+          General
+        </p>
+        <ul class="menu-list">
+          <li><a>Dashboard</a></li>
+          <li><a>Customers</a></li>
+        </ul>
+        <p class="menu-label">
+          Administration
+        </p>
+        <ul class="menu-list">
+          <li><a>Team Settings</a></li>
+          <li>
+            <a class="is-active">Manage Your Team</a>
+            <ul>
+              <li><a>Members</a></li>
+              <li><a>Plugins</a></li>
+              <li><a>Add a member</a></li>
+            </ul>
+          </li>
+          <li><a>Invitations</a></li>
+          <li><a>Cloud Storage Environment Settings</a></li>
+          <li><a>Authentication</a></li>
+        </ul>
+        <p class="menu-label">
+          Transactions
+        </p>
+        <ul class="menu-list">
+          <li><a>Payments</a></li>
+          <li><a>Transfers</a></li>
+          <li><a>Balance</a></li>
+        </ul>
+      </aside>
+    </div>
+
+    <div class="navbar-menu">
       <div class="navbar-start">
         <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link  is-active" href="/documentation/overview/start/">
@@ -206,6 +243,7 @@
           </div>
         </div>
       </div>
+
     </div>
   </nav>
 </template>
@@ -217,9 +255,11 @@
   export default {
     components: { },
     //props: [],
-    //data () {
-    //  return {}
-    //},
+    data () {
+      return {
+        showNav: false
+      }
+    },
     // mounted: function () {}
     methods: {
       signOut () {
@@ -238,6 +278,6 @@
   }
 </script>
 
-<style scoped>
+<style>
 
 </style>

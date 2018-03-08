@@ -2,13 +2,6 @@ const bodyParser = require('body-parser')
 
 module.exports = {
   /*
-  ** Server Middleware (express)
-  */
-  serverMiddleware: [
-    bodyParser.json(),
-    '~/api'
-  ],
-  /*
   ** Headers of the page
   */
   head: {
@@ -27,6 +20,19 @@ module.exports = {
   */
   loading: { color: '#3B8070' },
   /*
+  ** Server Middleware (express)
+  */
+  serverMiddleware: [
+    bodyParser.json(),
+    '~/api'
+  ],
+  /*
+  ** Router config
+  */
+  router: {
+    middleware: 'check-auth'
+  },
+  /*
   ** Build configuration
   */
   plugins: [],
@@ -43,6 +49,7 @@ module.exports = {
     ],
     postcss: {
       plugins: {
+        // prevent compile warnings from bulma
         'postcss-custom-properties': false
       }
     },

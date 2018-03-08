@@ -4,8 +4,9 @@
       General
     </p>
     <ul class="menu-list">
-      <li><a>Dashboard</a></li>
-      <li><a>Customers</a></li>
+      <li><nuxt-link to="/" active-class="is-active" exact>Dashboard</nuxt-link></li>
+      <li><nuxt-link to="/servers" active-class="is-active">Servers</nuxt-link></li>
+      <li><nuxt-link to="/auth/sign-out">Sign Off</nuxt-link></li>
     </ul>
     <p class="menu-label">
       Administration
@@ -13,7 +14,7 @@
     <ul class="menu-list">
       <li><a>Team Settings</a></li>
       <li>
-        <a class="is-active">Manage Your Team</a>
+        <a>Manage Your Team</a>
         <ul>
           <li><a>Members</a></li>
           <li><a>Plugins</a></li>
@@ -64,5 +65,11 @@
 </script>
 
 <style scoped>
+  #nav-toggle-state {
+    display: none;
+  }
 
+  #nav-toggle-state:checked ~ .is-hidden-mobile {
+    display: block;
+  }
 </style>

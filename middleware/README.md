@@ -6,4 +6,9 @@ The middleware lets you define custom function to be ran before rendering a page
 More information about the usage of this directory in the documentation:
 https://nuxtjs.org/guide/routing#middleware
 
-**This directory is not required, you can delete it if you don't want to use it.**
+## Contents
+
+ - anonymous.js - Checks store that current user is not authenticated.
+ - authenticated.js - Checks store that current user is authenticated or redirects to /auth/sign-in
+ - check-auth.js - Checks jwt token, pulls from localstorage if client, pulls from cookie if server.
+ 
